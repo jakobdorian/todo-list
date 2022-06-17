@@ -34,7 +34,7 @@ function TodoList() {
                 task.isComplete = !task.isComplete
             }
             return task;
-        })
+        });
         setTasks(updatedTask);
     }
     

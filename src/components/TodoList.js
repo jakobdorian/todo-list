@@ -15,6 +15,14 @@ function TodoList() {
         console.log(...tasks);
     }
 
+    const editTask =  (taskID, newValue) => {
+        if(!newValue.text || newValue.text.length < 3) {
+            return;
+        }
+
+        setTasks(prev => prev.map(item => (item.id === taskID ? newValue : item)))
+    }
+
     const removeTask = id => {
         const removeArray = [...tasks].filter(task => task.id !== id)
         setTasks(removeArray);
@@ -38,6 +46,7 @@ function TodoList() {
             tasks={tasks}
             completeTasks={completeTasks}
             removeTask={removeTask}
+            editTask={editTask}
             />
         </div>
     )
